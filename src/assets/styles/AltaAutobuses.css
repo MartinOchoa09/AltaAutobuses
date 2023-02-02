@@ -1,0 +1,12 @@
+#divpadre{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.titulo{
+    margin: 20px;
+    border-bottom: 3px black solid;
+}
+

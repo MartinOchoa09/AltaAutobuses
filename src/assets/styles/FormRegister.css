@@ -1,0 +1,17 @@
+#container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.child{
+    border: 1px black solid;
+    border-radius: 10px;
+    
+}
+
+.register{
+    border-bottom: 3px black solid;
+    margin: 20px;
+}

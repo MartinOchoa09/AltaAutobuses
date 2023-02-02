@@ -1,0 +1,17 @@
+#loginmain{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.login{
+    font-size: large;
+    border-bottom: 3px black solid;
+    margin: 20px;
+    
+}
+.username{
+    margin: 15px;
+}
+button{
+    margin: 30px;
+}
