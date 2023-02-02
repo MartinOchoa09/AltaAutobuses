@@ -4,29 +4,29 @@ import Header from "../atoms/Header";
 import "../../assets/styles/AltaAutobuses.css";
 
 function FormAutobuses() {
-    const [numero, setNumero] = useState()
+    const [numero, setNumero] = useState();
 
     const handlerClickRandom =(e) =>{
-        let aleatorio = Math.floor((Math.random() * 100000 + 1000000));
-        setNumero(aleatorio) 
-        console.log(setNumero)
+        let num = Math.floor((Math.random() * 100000 + 1000000));
+        setNumero(num) 
     }
+
     const formDataA = useRef()
+
     const handlerClick = (e) =>{
-        console.log('Prueba')
         const formData = new FormData(formDataA.current)
         let URI = "http://34.225.239.102/api/autobus/register";
         let options ={
             method: 'POST',
             headers:{"Content-Type": 'application/json'},
             body:JSON.stringify({
-                clave: formData.get('clave'),
-                placa: formData.get('placa'),
-                numasientos: formData.get('numeroA'),
+                clave: formData.get('claveAutobus'),
+                placa: formData.get('placaAutobus'),
+                numasientos: formData.get('numAsiento'),
                 fecha: formData.get('fecha'),
                 tipo: formData.get('tipo'),
-                nombre: formData.get('nombre'),
-                licencia: formData.get('numeroL')
+                nombre: formData.get('nombreChofer'),
+                licencia: formData.get('licencia')
             })
         }
         fetch(URI, options)
@@ -35,12 +35,11 @@ function FormAutobuses() {
     }
 
     return ( 
-        <body>
             <div className="container-father">
                 <Header/>
                 <div className="container-child">
                     <div className="container-littleChild">
-                        <form action="">
+                        <form ref={formDataA}>
                             <h1>Alta de Autobuses</h1>
                             <p>
                                 <label>Clave autobus</label>
@@ -59,8 +58,8 @@ function FormAutobuses() {
                                 <input type="date" name="fecha"/>
                             </p>
                             <p>
-                                <label>Tipo </label>
-                                <select>
+                                
+                                <select name="tipo">
                                     <option>Turismo</option>
                                     <option>Lujo</option>
                                 </select>
@@ -69,9 +68,9 @@ function FormAutobuses() {
                                 <label>Nombre del Chofer</label>
                                 <input type="text" name="nombreChofer"/>
                             </p>
-                            <p>
+                            <p className="licencia">
                                 <label>Numero de Licencia</label>
-                                <input type="text" value={numero} name="numeroL"/>
+                                <input type="number" value={numero} name="licencia"/>
                                 <button type="button" onClick={handlerClickRandom}>Generar numero de licencia</button>
                             </p>
                             <p>
@@ -81,7 +80,6 @@ function FormAutobuses() {
                     </div>
                 </div>
             </div>
-        </body>
      );
 }
 
