@@ -4,28 +4,32 @@ import '../../assets/styles/FormLogin.css';
 
 function FormLogin() {
     return ( 
-            <div id="loginmain">
-                <form>
-                <Header />
-                <div className="login">
+        <body>
+            <div className="padre">
+                <Header/>
+                <div className="hija">
+                    <div className="hijachica">
                     <h1>Inicio de Sesión</h1>
+                        <form action="">
+                            <p>
+                                <label>Username</label>
+                                <input type="text" name="username"/>
+                            </p>
+                            <p>
+                                <label>Password</label>
+                                <input type="email" name="password" />
+                            </p>
+                            <p>
+                            <button type="button">Iniciar Sesión</button>
+                            </p>
+                            <p>
+                                <h3><Link to={"/register"}>¿No tienes cuenta? registrate ahora</Link></h3>
+                            </p>
+                        </form>
+                    </div>
                 </div>
-                <div className="username">
-                    <div><label>Username </label></div>
-                    <div><input type="text" name="" id="usuario" /></div>
-                </div>
-                <div className="password">
-                    <div><label>Password </label></div>
-                    <div><input type="password" id="pass" /></div>
-                </div>
-                <div className="incioSesion">
-                    <button type="button" className="button">Inciar Sesión</button>
-                </div>
-                <div className="registro">
-                    <Link to={"/register"}>¿No tienes cuenta? registrate ahora</Link>
-                </div>
-                </form>
             </div>
+        </body>
      );
 }
 

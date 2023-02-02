@@ -1,17 +1,80 @@
-#loginmain{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+*{
+    box-sizing: border-box;
 }
-.login{
-    font-size: large;
-    border-bottom: 3px black solid;
-    margin: 20px;
-    
+
+body{
+    background: #181818;
+    color: #fff;
+    font-family: 'Quicksand', sans-serif;
+    padding: 0 1.5em;
 }
-.username{
-    margin: 15px;
+
+.padre{
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5em;
 }
-button{
-    margin: 30px;
+
+.hija{
+    margin: 10px;
+    box-shadow: 0 0 20px 0 rgba(255, 255, 255, .3);
+}
+
+.hija > *{
+    padding: 1em;
+}
+
+.hijachica{
+    background: #222222;
+}
+
+.hijachica form p{
+    margin: 0;
+    padding: 1em;
+}
+
+.hijachica form button:hover,
+.hijachica form button:focus{
+    background: #d63031;
+    color: #fff;
+}
+
+.hijachica form button,
+.hijachica form input{
+    width: 100%;
+    padding: .7em;
+    border: none;
+    background: none;
+    outline: 0;
+    color: #fff;
+    border-bottom: 1px solid #d63031;
+}
+
+.hijachica form button{
+    background: #b70e21;
+    color: #000;
+    border: 0;
+    margin: 0;
+    text-transform: uppercase;
+    padding: 1em;
+}
+
+@media (min-width: 700px){
+    body{
+        padding: 0 4rem;
+    }
+}
+
+.hijachica h1{
+    padding: 10px;
+    border-bottom: 2px #b70e21 dashed;
+}
+ 
+.padre img{
+    border-radius: 50%;
+}
+
+.hijachica h3{
+    color: #fff;
 }

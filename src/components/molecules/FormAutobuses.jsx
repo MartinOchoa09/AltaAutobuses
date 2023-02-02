@@ -1,8 +1,16 @@
 import { useRef } from "react";
+import { useState } from "react";
 import Header from "../atoms/Header";
 import "../../assets/styles/AltaAutobuses.css";
 
 function FormAutobuses() {
+    const [numero, setNumero] = useState()
+
+    const handlerClickRandom =(e) =>{
+        let aleatorio = Math.floor((Math.random() * 100000 + 1000000));
+        setNumero(aleatorio) 
+        console.log(setNumero)
+    }
     const formDataA = useRef()
     const handlerClick = (e) =>{
         console.log('Prueba')
@@ -18,7 +26,7 @@ function FormAutobuses() {
                 fecha: formData.get('fecha'),
                 tipo: formData.get('tipo'),
                 nombre: formData.get('nombre'),
-                licencia: formData.get('licencia')
+                licencia: formData.get('numeroL')
             })
         }
         fetch(URI, options)
@@ -27,50 +35,53 @@ function FormAutobuses() {
     }
 
     return ( 
-        <form ref={formDataA}>
-        <Header />
-        <div id="divpadre">
-            <div className="titulo">
-                <h1>Alta de Autobuses</h1>
-            </div>
-            <div>
-                <div><label htmlFor="">Clave autobus</label></div>
-                <div><input type="text" name="clave"/></div>
-            </div>
-            <div>
-                <div><label htmlFor="">Placa autobus</label></div>
-                <div><input type="text" name="placa"/></div>
-            </div>
-            <div>
-                <div><label htmlFor="">Numero de asientos</label></div>
-                <div><input type="text" name="numeroA"/></div>
-            </div>
-            <div>
-                <div><label htmlFor="">Fecha de alta</label></div>
-                <div><input type="date" name="fecha"/></div>
-            </div>
-            <div>
-                <div><label htmlFor="">Tipo</label></div>
-                <div>
-                    <select name="tipo">
-                        <option value="turismo">Turismo</option>
-                        <option value="lujo">Lujo</option>
-                    </select>    
+        <body>
+            <div className="container-father">
+                <Header/>
+                <div className="container-child">
+                    <div className="container-littleChild">
+                        <form action="">
+                            <h1>Alta de Autobuses</h1>
+                            <p>
+                                <label>Clave autobus</label>
+                                <input type="text" name="claveAutobus"/>
+                            </p>
+                            <p>
+                                <label>Placa Autobus</label>
+                                <input type="text" name="placaAutobus"/>
+                            </p>
+                            <p>
+                                <label>Numero de Asiento</label>
+                                <input type="number" name="numAsiento"/>
+                            </p>
+                            <p>
+                                <label>Fecha de Alta</label>
+                                <input type="date" name="fecha"/>
+                            </p>
+                            <p>
+                                <label>Tipo </label>
+                                <select>
+                                    <option>Turismo</option>
+                                    <option>Lujo</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label>Nombre del Chofer</label>
+                                <input type="text" name="nombreChofer"/>
+                            </p>
+                            <p>
+                                <label>Numero de Licencia</label>
+                                <input type="text" value={numero} name="numeroL"/>
+                                <button type="button" onClick={handlerClickRandom}>Generar numero de licencia</button>
+                            </p>
+                            <p>
+                                <button type="button" onClick={handlerClick}>Alta de autobuses</button>
+                            </p>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div>
-                <div><label htmlFor="">Nombre del chofer</label></div>
-                <div><input type="text" name="nombre"/></div>
-            </div>
-            <div>
-                <div><label htmlFor="">Numero de licencia</label></div>
-                <div><input type="text" name="licencia"/></div>
-            </div>
-            <div>
-                <div><button type="button" onClick={handlerClick}>Alta de autobuses</button></div>
-            </div>
-        </div>
-        </form>
+        </body>
      );
 }
 
